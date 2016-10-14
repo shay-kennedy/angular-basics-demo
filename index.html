@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="root">
+<head>
+	<meta charset="UTF-8">
+	<link href='style.css' rel='stylesheet' type="text/css">
+	<title>Angular Basics</title>
+</head>
+<body>
+	
+	<h1> ANGULAR HIGHLIGHTS </h1>
+
+	<h2 class="group first"><--------- BASIC BUILT-IN DIRECTIVES ---------></h2>
+
+	<!-- EXAMPLE OF TWO-WAY BINDING -->
+	<div ng-controller="indexCtrl" class="section">
+		<h4>EXAMPLE OF TWO-WAY BINDING ( ng-model )</h4>
+		<div>
+			Favorite word: <input type="text" ng-model="favoriteWord" />
+			=> {{favoriteWord}} <=
+		</div>
+		<div>
+			Favorite color: 
+			<input type="radio" name="fc" value="Red" ng-model="favoriteColor">Red</input>
+			<input type="radio" name="fc" value="Green" ng-model="favoriteColor">Green</input>
+			<input type="radio" name="fc" value="Yellow" ng-model="favoriteColor">Yellow</input>
+			<input type="radio" name="fc" value="Blue" ng-model="favoriteColor">Blue</input>
+			=> {{favoriteColor}} <=
+		</div>
+		<div>
+			Favorite shape:
+			<select ng-model="favoriteShape">
+				<option value="Circle">Circle</option>
+				<option value="Triangle">Triangle</option>
+				<option value="Square">Square</option>
+			</select>
+			=> {{favoriteShape}} <=
+		</div>
+	</div>
+
+	<!-- EXAMPLE OF CSS CLASSES BINDING -->
+	<div ng-controller="indexCtrl" class="section">
+		<h4>EXAMPLE OF CSS CLASSES BINDING (using ng-class)</h4>
+		<input type="text" ng-model="value" />
+		<span ng-class="{bold: isBold(), italic: isItalic(), underline: isUnderlined()}">Example Text</span>
+	</div>
+
+	<!-- EXAMPLE OF REPEATERS -->
+	<div ng-controller="indexCtrl" class="section">
+		<h4>EXAMPLE OF REPEATERS (using ng-repeat, ng-class)</h4>
+		<table>
+			<thead>
+				<tr>
+					<td>ID</td>
+					<td>NAME</td>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="product in products" ng-class="{oddRow: $odd}">
+					<td>{{product.id}}</td>
+					<td>{{product.name}}</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+
+	<!-- EXAMPLE OF VISIBILITY -->
+	<div ng-controller="indexCtrl" class="section">
+		<h4>EXAMPLE OF VISIBILITY (using ng-show, ng-hide, ng-if)</h4>
+		<div><input type="checkbox" ng-model="isFirstElementVisible" /> Is first element visible</div>
+		<div><input type="checkbox" ng-model="isSecondElementVisible" /> Is second element visible</div>
+		<div ng-show="isFirstElementVisible">First Element - This element is just hidden (ng-show / ng-hide)</div>
+		<div ng-if="isSecondElementVisible">Second Element - This element is actually removed (ng-if)</div>
+	</div>
+
+	<h2 class="group"><--------- RECIPES/SERVICES ---------></h2>
+
+	<!-- EXAMPLE OF VALUE RECIPE -->
+	<div ng-controller="indexCtrl" class="section">
+		<h4>EXAMPLE OF VALUE RECIPE</h4>
+		{{message}}
+	</div>
+
+	<!-- EXAMPLE OF FACTORY RECIPE -->
+	<div ng-controller="indexCtrl" class="section">
+		<h4>EXAMPLE OF FACTORY RECIPE</h4>
+		{{factoryProduct}}
+	</div>
+
+	<!-- EXAMPLE OF SERVICE RECIPE -->
+	<div ng-controller="indexCtrl" class="section">
+		<h4>EXAMPLE OF SERVICE RECIPE</h4>
+		{{serviceProduct}}
+	</div>
+
+	<!-- EXAMPLE OF PROVIDER RECIPE -->
+	<div ng-controller="indexCtrl" class="section">
+		<h4>EXAMPLE OF PROVIDER RECIPE</h4>
+		{{note}}
+	</div>
+
+	<!-- EXAMPLE OF CONSTANT RECIPE -->
+		<div ng-controller="indexCtrl" class="section">
+			<h4>EXAMPLE OF CONSTANT RECIPE</h4>
+			{{constantText}}
+		</div>
+
+	<h2 class="group"><--------- MORE ADVANCED FEATURES ---------></h2>
+
+		<!-- EXAMPLE OF $watch -->
+		<div ng-controller="indexCtrl" class="section">
+			<h4>EXAMPLE OF $WATCH</h4>
+			<input type="text" ng-model="factor" /> {{product}}
+		</div>
+
+		<!-- EXAMPLE OF FILTERS -->
+		<div ng-controller="indexCtrl" class="section">
+			<h4>EXAMPLE OF FILTERS</h4>
+			<p>Value: <input type="text" ng-model="value" /></p>
+			<p>{{value | round:2 | dollars}}</p>
+		</div>
+
+		<!-- EXAMPLE OF DATA VALIDATION -->
+		<div ng-controller="indexCtrl" class="section">
+			<h4>EXAMPLE OF DATA VALIDATION</h4>
+			<label>Name: </label>
+			<input class="validate" type="text" ng-model="name" required />
+			<label>Email: </label>
+			<input class="validate" type="email" ng-model="email" />
+		</div>
+
+		<!-- EXAMPLE OF AJAX CALLS USING $RESOURCE -->
+		<div ng-controller="indexCtrl" class="section">
+			<h4>EXAMPLE OF AJAX CALLS USING $RESOURCE</h4>
+			<button ng-click="getUser()">Get User</button>
+			Name: <input ng-model="user.name" />
+			Email: <input ng-model="user.email" />
+			<!-- <button ng-click="postUser()">Post User</button> -->
+		</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.5/angular.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-resource/1.5.8/angular-resource.js"></script>
+  <script src="root.js" type="text/javascript"></script>
+  <script src="multiplier.js" type="text/javascript"></script>
+  <script src="note.js" type="text/javascript"></script>
+  <script src="services.js" type="text/javascript"></script>
+  <script src="filters.js" type="text/javascript"></script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+body {
+	margin-left: 2em;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.italic {
+	font-style: italic;
+}
+
+.underline {
+	text-decoration: underline;
+}
+
+.section {
+	margin: 3em 0 0 0;
+}
+
+.oddRow {
+	background-color: #d3d3d3;
+}
+
+.group {
+	margin: 3em 0 -1em 0;
+}
+
+thead td {
+	text-decoration: underline;
+}
+
+input.validate.ng-dirty.ng-valid {
+    border-color: green;
+    background-color: lightgreen;
+}
+
+input.validate.ng-dirty.ng-invalid {
+    border-color: red;
+    background-color: lightcoral;
+}
+
+.first {
+	margin-top: 1.5em;
+}
+
+.left {
+	float: left;
+}
+
+.right {
+	float: right;
+}
